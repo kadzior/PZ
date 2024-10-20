@@ -1,9 +1,9 @@
 /**
  * @file doubly_linked_list.cpp
- * @brief Implementacja dwukierunkowej listy wi¹zanej w C++.
+ * @brief Implementacja dwukierunkowej listy wiÂ¹zanej w C++.
  *
- * Ta klasa reprezentuje dwukierunkow¹ listê wi¹zan¹ i implementuje podstawowe operacje
- * takie jak dodanie elementu na pocz¹tek, koniec, do okreœlonego indeksu oraz inne.
+ * Ta klasa reprezentuje dwukierunkowÂ¹ listÃª wiÂ¹zanÂ¹ i implementuje podstawowe operacje
+ * takie jak dodanie elementu na poczÂ¹tek, koniec, do okreÅ“lonego indeksu oraz inne.
  */
 #include <iostream>
 #include "Node.hpp"
@@ -11,25 +11,25 @@ using namespace std;
 
 /**
  * @class DoublyLinkedList
- * @brief Klasa reprezentuj¹ca dwukierunkow¹ listê wi¹zan¹.
+ * @brief Klasa reprezentujÂ¹ca dwukierunkowÂ¹ listÃª wiÂ¹zanÂ¹.
  *
- * Ta klasa przechowuje wêz³y listy, umo¿liwia dodawanie, usuwanie elementów,
- * oraz operacje takie jak wyœwietlanie listy.
+ * Ta klasa przechowuje wÃªzÂ³y listy, umoÂ¿liwia dodawanie, usuwanie elementÃ³w,
+ * oraz operacje takie jak wyÅ“wietlanie listy.
  */
 class DoublyLinkedList {
 private:
 
     Node* head;
     Node* tail;
-    Node* current; // wskaŸnik do poruszania siê po liœcie
+    Node* current; // wskaÅ¸nik do poruszania siÃª po liÅ“cie
 
 public:
     /**
-     * @brief Konstruktor domyœlny, inicjuje pust¹ listê.
+     * @brief Konstruktor domyÅ“lny, inicjuje pustÂ¹ listÃª.
      */
     DoublyLinkedList() : head(nullptr), tail(nullptr), current(nullptr) {}
     /**
-     * @brief Destruktor, który zwalnia zasoby klasy z pamiêci
+     * @brief Destruktor, ktÃ³ry zwalnia zasoby klasy z pamiÃªci
      */
     ~DoublyLinkedList() {
         head = nullptr;
@@ -37,9 +37,9 @@ public:
         current = nullptr; 
     }
     /**
-     * @brief Dodanie elementu na pocz¹tek listy.
+     * @brief Dodanie elementu na poczÂ¹tek listy.
      *
-     * @param value Wartoœæ elementu do dodania na pocz¹tek listy.
+     * @param value WartoÅ“Ã¦ elementu do dodania na poczÂ¹tek listy.
      */
     void addToStart(int value) {
         Node* newNode = new Node(value);
@@ -55,7 +55,7 @@ public:
     /**
      * @brief Dodanie elementu na koniec listy.
      *
-     * @param value Wartoœæ elementu do dodania na koniec listy.
+     * @param value WartoÅ“Ã¦ elementu do dodania na koniec listy.
      */
     void addToEnd(int value) {
         Node* newNode = new Node(value);
@@ -71,8 +71,8 @@ public:
     /**
      * @brief Dodanie elementu pod wskazany indeks.
      *
-     * @param index Indeks, pod który ma zostaæ dodany element.
-     * @param value Wartoœæ elementu do dodania.
+     * @param index Indeks, pod ktÃ³ry ma zostaÃ¦ dodany element.
+     * @param value WartoÅ“Ã¦ elementu do dodania.
      */
     void addAtIndex(int index, int value) {
         if (index <= 0) {
@@ -102,7 +102,7 @@ public:
         }
     }
     /**
-     * @brief Usuñ element z pocz¹tku listy.
+     * @brief UsuÃ± element z poczÂ¹tku listy.
      */
     void removeFromStart() {
         if (!head) return;
@@ -118,7 +118,7 @@ public:
         delete temp;
     }
     /**
-     * @brief Usuñ element z koñca listy.
+     * @brief UsuÃ± element z koÃ±ca listy.
      */
     void removeFromEnd() {
         if (!tail) return;
@@ -134,9 +134,9 @@ public:
         delete temp;
     }
     /**
-     * @brief Usuñ element pod wskazanym indeksem.
+     * @brief UsuÃ± element pod wskazanym indeksem.
      *
-     * @param index Indeks elementu do usuniêcia.
+     * @param index Indeks elementu do usuniÃªcia.
      */
     void deleteAtIndex(int index) {
         if (index < 0 || !head) return;
@@ -164,7 +164,7 @@ public:
         delete temp;
     }
     /**
-     * @brief Wyœwietl ca³¹ listê od pocz¹tku do koñca.
+     * @brief WyÅ“wietl caÂ³Â¹ listÃª od poczÂ¹tku do koÃ±ca.
      */
     void read() const {
         Node* temp = head;
@@ -175,7 +175,7 @@ public:
         cout << endl;
     }
     /**
-     * @brief Wyœwietl listê w odwrotnej kolejnoœci.
+     * @brief WyÅ“wietl listÃª w odwrotnej kolejnoÅ“ci.
      */
     void readReverse() const {
         Node* temp = tail;
@@ -186,13 +186,34 @@ public:
         cout << endl;
     }
     /**
-     * @brief Wyœwietl nastêpny element.
+     * @brief WyÅ“wietl nastÃªpny element.
      */
     void printNextElement() {
         if (!current) current = head;
         else if (current->next) current = current->next;
-        else current = head; // Powrót do pocz¹tku, jeœli koniec zosta³ osi¹gniêty.
+        else current = head; // PowrÃ³t do poczÂ¹tku, jeÅ“li koniec zostaÂ³ osiÂ¹gniÃªty.
 
-        if (current) cout << "Nastêpny element: " << current->data << endl;
+        if (current) cout << "NastÃªpny element: " << current->data << endl;
+    }
+};
+    /**
+     * @brief WyÅ›wietl poprzedni element.
+     */
+    void printPrevElement() {
+        if (!current) current = tail;
+        else if (current->prev) current = current->prev;
+        else current = tail; // PowrÃ³t do koÅ„ca, jeÅ›li poczÄ…tek zostaÅ‚ osiÄ…gniÄ™ty.
+
+        if (current) cout << "Poprzedni element: " << current->data << endl;
+    }
+
+    /**
+     * @brief CzyÅ›Ä‡ caÅ‚Ä… listÄ™.
+     */
+    void clearList() {
+        while (head) {
+            removeFromStart();
+        }
+        current = nullptr;
     }
 };
