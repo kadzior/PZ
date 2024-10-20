@@ -133,4 +133,34 @@ public:
         }
         delete temp;
     }
+    /**
+     * @brief Usuñ element pod wskazanym indeksem.
+     *
+     * @param index Indeks elementu do usuniêcia.
+     */
+    void deleteAtIndex(int index) {
+        if (index < 0 || !head) return;
+
+        if (index == 0) {
+            removeFromStart();
+            return;
+        }
+
+        Node* temp = head;
+        int currentIndex = 0;
+
+        while (temp && currentIndex < index) {
+            temp = temp->next;
+            currentIndex++;
+        }
+
+        if (!temp) return;
+
+        if (temp->prev) temp->prev->next = temp->next;
+        if (temp->next) temp->next->prev = temp->prev;
+
+        if (temp == tail) tail = temp->prev;
+
+        delete temp;
+    }
 };
