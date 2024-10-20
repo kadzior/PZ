@@ -185,5 +185,14 @@ public:
         }
         cout << endl;
     }
+    /**
+     * @brief Wyœwietl nastêpny element.
+     */
+    void printNextElement() {
+        if (!current) current = head;
+        else if (current->next) current = current->next;
+        else current = head; // Powrót do pocz¹tku, jeœli koniec zosta³ osi¹gniêty.
 
+        if (current) cout << "Nastêpny element: " << current->data << endl;
+    }
 };
