@@ -36,4 +36,20 @@ public:
         tail = nullptr;
         current = nullptr; 
     }
+    /**
+     * @brief Dodanie elementu na pocz¹tek listy.
+     *
+     * @param value Wartoœæ elementu do dodania na pocz¹tek listy.
+     */
+    void addToStart(int value) {
+        Node* newNode = new Node(value);
+        if (!head) {
+            head = tail = newNode;
+        }
+        else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
 };
