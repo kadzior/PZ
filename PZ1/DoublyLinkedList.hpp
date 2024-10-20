@@ -117,4 +117,20 @@ public:
         }
         delete temp;
     }
+    /**
+     * @brief Usuñ element z koñca listy.
+     */
+    void removeFromEnd() {
+        if (!tail) return;
+
+        Node* temp = tail;
+        tail = tail->prev;
+        if (tail) {
+            tail->next = nullptr;
+        }
+        else {
+            head = nullptr;
+        }
+        delete temp;
+    }
 };
