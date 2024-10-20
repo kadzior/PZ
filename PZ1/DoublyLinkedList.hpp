@@ -101,4 +101,20 @@ public:
             temp->prev = newNode;
         }
     }
+    /**
+     * @brief Usuñ element z pocz¹tku listy.
+     */
+    void removeFromStart() {
+        if (!head) return;
+
+        Node* temp = head;
+        head = head->next;
+        if (head) {
+            head->prev = nullptr;
+        }
+        else {
+            tail = nullptr;
+        }
+        delete temp;
+    }
 };
