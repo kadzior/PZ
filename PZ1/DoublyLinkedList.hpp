@@ -68,4 +68,37 @@ public:
             tail = newNode;
         }
     }
+    /**
+     * @brief Dodanie elementu pod wskazany indeks.
+     *
+     * @param index Indeks, pod który ma zostaæ dodany element.
+     * @param value Wartoœæ elementu do dodania.
+     */
+    void addAtIndex(int index, int value) {
+        if (index <= 0) {
+            addToStart(value);
+            return;
+        }
+
+        Node* newNode = new Node(value);
+        Node* temp = head;
+        int currentIndex = 0;
+
+        while (temp && currentIndex < index) {
+            temp = temp->next;
+            currentIndex++;
+        }
+
+        if (!temp) {
+            addToEnd(value);
+        }
+        else {
+            newNode->next = temp;
+            newNode->prev = temp->prev;
+            if (temp->prev) {
+                temp->prev->next = newNode;
+            }
+            temp->prev = newNode;
+        }
+    }
 };
