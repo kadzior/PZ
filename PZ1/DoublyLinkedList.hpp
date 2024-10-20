@@ -195,4 +195,14 @@ public:
 
         if (current) cout << "Nastêpny element: " << current->data << endl;
     }
+    /**
+     * @brief Wyœwietl poprzedni element.
+     */
+    void printPrevElement() {
+        if (!current) current = tail;
+        else if (current->prev) current = current->prev;
+        else current = tail; // Powrót do koñca, jeœli pocz¹tek zosta³ osi¹gniêty.
+
+        if (current) cout << "Poprzedni element: " << current->data << endl;
+    }
 };
