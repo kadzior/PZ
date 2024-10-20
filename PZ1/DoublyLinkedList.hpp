@@ -174,4 +174,16 @@ public:
         }
         cout << endl;
     }
+    /**
+     * @brief Wyœwietl listê w odwrotnej kolejnoœci.
+     */
+    void readReverse() const {
+        Node* temp = tail;
+        while (temp) {
+            cout << temp->data << " ";
+            temp = temp->prev;
+        }
+        cout << endl;
+    }
+
 };
