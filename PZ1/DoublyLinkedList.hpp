@@ -163,4 +163,15 @@ public:
 
         delete temp;
     }
+    /**
+     * @brief Wyœwietl ca³¹ listê od pocz¹tku do koñca.
+     */
+    void read() const {
+        Node* temp = head;
+        while (temp) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
 };
