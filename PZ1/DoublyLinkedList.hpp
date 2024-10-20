@@ -52,4 +52,20 @@ public:
             head = newNode;
         }
     }
+    /**
+     * @brief Dodanie elementu na koniec listy.
+     *
+     * @param value Wartoœæ elementu do dodania na koniec listy.
+     */
+    void addToEnd(int value) {
+        Node* newNode = new Node(value);
+        if (!tail) {
+            head = tail = newNode;
+        }
+        else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
 };
